@@ -1,4 +1,4 @@
-CFLAGS = -Wall -g -c
+FLAGS = -Wall -g -c
 
 all : strcmp strcat
 
@@ -8,7 +8,7 @@ strcat : strcat.o strlen.o
 strcmp : strcmp.o strlen.o
 	${CC} strcmp.o strlen.o -o strcmp
 
-strlen.co : strlen.c
+strlen.o : strlen.c
 	${CC} $(CFLAGS) strlen.c -o strlen.o
 
 strcmp.o : strcmp.c strlen.h
