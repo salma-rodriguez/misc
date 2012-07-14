@@ -1,4 +1,3 @@
-
 int mystrlen(char *str)
 {
     int count;
