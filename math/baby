@@ -1,0 +1,31 @@
+DoWholePart[x_] := (
+	P = 0;
+	A = {};
+	W = x;
+	While[W > 0,
+		R = Mod[W, 60];
+		A = Prepend[A, {R, P++}];
+		W = Floor[W/60];
+	];
+	Return[A];
+)
+
+DoFractionPart[x_, n_] := (
+	P = 0;
+	K = 0;
+	B = {};
+	V = Q = x;
+	While[K++ < n,
+		V = 60*Q;
+		Q = V - Floor[V];
+		AppendTo[B, {Floor[V], --P];
+	];
+	Return[B];
+)
+
+ToBabylonian[x_, n_] := (
+	A = DoWholePart[Floor[x]];
+	B = DoFractionPart[x - Floor[x], n];
+	M = Join[A, B];
+	Print[M];
+)
