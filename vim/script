@@ -1,0 +1,54 @@
+#!/bin/zsh
+
+REPO=https://github.com
+FONT=fontpatcher-symbols.sfd
+
+function setup {
+cp .vimrc ~/
+
+mkdir -p ~/.vim/colors
+mkdir -p ~/.vim/bundle
+
+# color scheme
+
+cp mustang.vim ~/.vim/colors
+
+cd ~/.vim/bundle
+
+# add bundles here
+
+git clone $REPO/gmarik/vundle
+git clone $REPO/tpope/vim-fugitive
+git clone $REPO/Lokaltog/powerline
+git clone $REPO/scrooloose/nerdtree
+git clone $REPO/godlygeek/csapprox
+git clone $REPO/MarcWeber/vim-addon-mw-utils
+git clone $REPO/tomtom/tlib_vim
+git clone $REPO/honza/snipmate-snippets
+git clone $REPO/garbas/vim-snipmate
+}
+
+# sudo apt-get install python3-pip
+# sudo pip-3.2 install git+git://github.com/Lokaltog/powerline
+
+function load_font {
+cd ~/.vim/bundle/powerline/font/
+./fontpatcher.py $FONT
+mv PowerlineSymbols\ for\ Powerline.otf ~/.fonts
+fc-cache -vf ~/.fonts
+}
+
+case "$1" in
+	all)
+		setup
+		load_font
+		;;
+	setup)
+		setup
+		;;
+	load_font)
+		load_font
+		;;
+	esac
+
+exit 0
