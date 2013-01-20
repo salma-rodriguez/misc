@@ -5,8 +5,8 @@
 " call pathogen#helptags()
 " call pathogen#runtime_append_all_bundles()
 
-set nocompatible
 filetype off
+set nocompatible
 
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
@@ -93,6 +93,7 @@ autocmd filetype html,xml set listchars-=tab:>.
 " }
 
 " Mapping {
+" Basic {
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
@@ -116,6 +117,7 @@ nnoremap k gk
 vmap Q gq
 nmap Q gqap
 cmap w!! w !sudo tee % > /dev/null
+" }
 
 " Fugitive {
 nnoremap <silent> <leader>gs :Gstatus<CR>
