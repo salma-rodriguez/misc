@@ -19,6 +19,7 @@ set nocompatible
 set encoding=utf-8
 
 set nowrap
+set nolist
 set tabstop=8
 set backspace=indent,eol,start
 set autoindent
@@ -70,6 +71,10 @@ if has('autocmd')
 autocmd filetype python set expandtab
 endif
 
+set listchars=tab:>.,trail:.,extends:#,nbsp:.
+autocmd filetype html,xml set listchars=tab:>.
+set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%v\ %P%)
+
 source ~/.vim/bundle/powerline/powerline/bindings/vim/source_plugin.vim
 
 " Status Line {
@@ -83,13 +88,6 @@ set statusline+=\ [%{getcwd()}]
 set statusline+=%=%-14.(%l,%c%V%)\ %p%%
 endif
 " }
-
-set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%v\ %P%)
-
-" set list
-" set listchars=tab:>.,trail:.,extends:#,nbsp:.
-
-autocmd filetype html,xml set listchars-=tab:>.
 " }
 
 " Mapping {
@@ -103,6 +101,9 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
+nmap <silent> <leader>. :set list<CR>
+nmap <silent> <leader>m :set nolist<CR>
 
 nmap <silent> <leader>/ :nohlsearch<CR>
 nmap <silent> <leader>s :set spell!<CR>
@@ -132,6 +133,7 @@ nnoremap <silent> <leader>gp :Git push<CR>
 map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 map <leader>e :NERDTreeFind<CR>
 nmap <leader>nt :NERDTreeFind<CR>
+nnoremap <silent> <leader>n :NERDTree .<CR>
 " }
 " }
 
@@ -147,10 +149,14 @@ nmap <leader>nt :NERDTreeFind<CR>
 " }
 
 " Plugins {
+" NerdTree {
+autocmd vimenter * if !argc() | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" }
 " Powerline {
-" let g:Powerline_symbols = 'fancy'
-" let g:Powerline_theme = 'skwp'
-" let g:Powerline_colorscheme = 'skwp'
+let g:Powerline_symbols = 'fancy'
+let g:Powerline_theme = 'skwp'
+let g:Powerline_colorscheme = 'skwp'
 let g:Powerline_cache_enabled = 0
 " }
 " }
