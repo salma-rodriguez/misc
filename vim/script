@@ -34,6 +34,7 @@ cd ~/.vim/bundle/powerline/font/
 ./fontpatcher.py $FONT
 mv PowerlineSymbols\ for\ Powerline.otf ~/.fonts
 fc-cache -vf ~/.fonts
+mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d
 }
 
 case "$1" in
