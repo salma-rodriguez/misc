@@ -2,6 +2,7 @@
 " vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
 " }
 
+" Setup {
 " call pathogen#helptags()
 " call pathogen#runtime_append_all_bundles()
 
@@ -12,6 +13,7 @@ set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
 let mapleader=","
+" }
 
 " Basic Settings {
 set hidden
@@ -74,8 +76,7 @@ endif
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 autocmd filetype html,xml set listchars=tab:>.
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%v\ %P%)
-
-source ~/.vim/bundle/powerline/powerline/bindings/vim/source_plugin.vim
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 " Status Line {
 if has('statusline')
