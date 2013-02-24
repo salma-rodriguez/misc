@@ -6,16 +6,12 @@ FONT=fontpatcher-symbols.sfd
 function setup {
 cp .vimrc ~/
 
-mkdir -p ~/.vim/colors
 mkdir -p ~/.vim/bundle
-
-# color scheme
-
-cp mustang.vim ~/.vim/colors
+mkdir -p ~/.vim/colors
 
 cd ~/.vim/bundle
 
-# add bundles here
+# bundles
 
 git clone $REPO/gmarik/vundle
 git clone $REPO/tpope/vim-fugitive
@@ -26,6 +22,8 @@ git clone $REPO/MarcWeber/vim-addon-mw-utils
 git clone $REPO/tomtom/tlib_vim
 git clone $REPO/honza/snipmate-snippets
 git clone $REPO/garbas/vim-snipmate
+git clone $REPO/flazz/vim-colorschemes
+
 }
 
 # sudo apt-get install python3-pip

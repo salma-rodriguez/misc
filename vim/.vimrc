@@ -146,6 +146,7 @@ nnoremap <silent> <leader>n :NERDTree .<CR>
 	Bundle 'tomtom/tlib_vim'
 	Bundle 'honza/snipmate-snippets'
 	Bundle 'garbas/vim-snipmate'
+	Bundle 'flazz/vim-colorschemes'
 " }
 
 " Plugins {
