@@ -53,6 +53,7 @@ set t_Co=256
 set mouse=a
 set pastetoggle=<F2>
 set spelllang=en_us
+set cpoptions+=$
 " }
 
 " Advanced Settings {
@@ -148,6 +149,7 @@ nnoremap <silent> <leader>n :NERDTree .<CR>
 	Bundle 'honza/snipmate-snippets'
 	Bundle 'garbas/vim-snipmate'
 	Bundle 'flazz/vim-colorschemes'
+	Bundle 'Lokaltog/powerline'
 " }
 
 " Plugins {
