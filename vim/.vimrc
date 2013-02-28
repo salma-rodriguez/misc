@@ -3,11 +3,10 @@
 " }
 
 " Setup {
+filetype off
+
 " call pathogen#helptags()
 " call pathogen#runtime_append_all_bundles()
-
-filetype off
-set nocompatible
 
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
@@ -19,7 +18,6 @@ let mapleader=","
 set hidden
 set nocompatible
 set encoding=utf-8
-
 set nowrap
 set nolist
 set tabstop=8
@@ -40,7 +38,6 @@ set ruler
 set cursorline
 set winminheight=0
 set winheight=9999
-
 set history=1000
 set undolevels=1000
 set wildignore=*.swp,*.bak,*.pyc,*.class
@@ -49,7 +46,7 @@ set visualbell
 set noerrorbells
 set nobackup
 set noswapfile
-set t_Co=256
+set t_Co=16
 set mouse=a
 set pastetoggle=<F2>
 set spelllang=en_us
@@ -62,7 +59,6 @@ set cindent
 	Bundle 'gmarik/vundle'
 	Bundle 'tpope/vim-fugitive'
 	Bundle 'scrooloose/nerdtree'
-	Bundle 'godlygeek/csapprox'
 	Bundle 'MarcWeber/vim-addon-mw-utils'
 	Bundle 'tomtom/tlib_vim'
 	Bundle 'honza/snipmate-snippets'
@@ -73,27 +69,47 @@ set cindent
 " }
 
 " Advanced Settings {
+" Basic GUI Settings {
+set background=dark
+
 if &t_Co > 2 || has('gui_running')
 syntax enable
 endif
-
-set background=dark
-
-" Solarized {
-let g:solarized_termcolors=256
-let g:solarized_visibility="high"
-let g:solarized_contrast="high"
 " }
+
+" Advanced GUI Settings {
+" Solarized {
+let g:solarized_bold=1
+let g:solarized_contrast="high"
+let g:solarized_degrade=0
+let g:solarized_italic=1
+let g:solarized_termcolors=16
+let g:solarized_termtrans=0
+let g:solarized_underline=1
+let g:solarized_visibility="high"
+" }
+
+" ColorScheme {
+if &t_Co >= 16
+if &t_Co == 16 || has('gui_running')
+	colorscheme solarized
+else
+	colorscheme mustang
+	Bundle 'godlygeek/csapprox'
+endif
+else
+	colorscheme default
+endif
+" }
+" }
+
+" Miscellaneous {
+filetype plugin indent on
 
 if has('cmdline_info')
 set showcmd
 endif
 
-if &t_Co >= 16 || has('gui_running')
-colorscheme solarized
-endif
-
-filetype plugin indent on
 if has('autocmd')
 autocmd filetype python set expandtab
 endif
@@ -102,6 +118,7 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:.
 autocmd filetype html,xml set listchars=tab:>.
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%v\ %P%)
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+" }
 
 " Status Line {
 if has('statusline')
@@ -147,12 +164,13 @@ cmap w!! w !sudo tee % > /dev/null
 " }
 
 " Fugitive {
-nnoremap <silent> <leader>gs :Gstatus<CR>
-nnoremap <silent> <leader>gd :Gdiff<CR>
-nnoremap <silent> <leader>gc :Gcommit<CR>
 nnoremap <silent> <leader>gb :Gblame<CR>
+nnoremap <silent> <leader>gd :Gdiff<CR>
 nnoremap <silent> <leader>gl :Glog<CR>
 nnoremap <silent> <leader>gp :Git push<CR>
+nnoremap <silent> <leader>gr :Gread<CR>
+nnoremap <silent> <leader>gs :Gstatus<CR>
+nnoremap <silent> <leader>gw :Gwrite<CR>
 " }
 
 " NerdTree {
@@ -168,6 +186,7 @@ nnoremap <silent> <leader>n :NERDTree .<CR>
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " }
+
 " Powerline {
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_theme = 'skwp'
