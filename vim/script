@@ -49,9 +49,13 @@ case "$1" in
 	all)
 		setup
 		load_font
+		git_setup
 		;;
 	setup)
 		setup
+		;;
+	git_setup)
+		git_setup
 		;;
 	load_font)
 		load_font
