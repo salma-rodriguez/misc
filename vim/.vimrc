@@ -54,6 +54,7 @@ set mouse=a
 set pastetoggle=<F2>
 set spelllang=en_us
 set cpoptions+=$
+set virtualedit=all
 " }
 
 " Advanced Settings {
