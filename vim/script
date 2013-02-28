@@ -37,6 +37,14 @@ fc-cache -vf ~/.fonts
 mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d
 }
 
+function git_setup {
+git config --global user.name "salma-rodriguez"
+git config --global user.email "srodr063@fiu.edu"
+git config --global diff.tool vimdiff
+git config --global merge.tool vimdiff
+git config --global difftool.prompt false
+}
+
 case "$1" in
 	all)
 		setup
