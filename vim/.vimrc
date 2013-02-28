@@ -55,19 +55,42 @@ set pastetoggle=<F2>
 set spelllang=en_us
 set cpoptions+=$
 set virtualedit=all
+set cindent
+" }
+
+" Bundles {
+	Bundle 'gmarik/vundle'
+	Bundle 'tpope/vim-fugitive'
+	Bundle 'scrooloose/nerdtree'
+	Bundle 'godlygeek/csapprox'
+	Bundle 'MarcWeber/vim-addon-mw-utils'
+	Bundle 'tomtom/tlib_vim'
+	Bundle 'honza/snipmate-snippets'
+	Bundle 'garbas/vim-snipmate'
+	Bundle 'flazz/vim-colorschemes'
+	Bundle 'Lokaltog/powerline'
+	Bundle 'altercation/vim-colors-solarized'
 " }
 
 " Advanced Settings {
+if &t_Co > 2 || has('gui_running')
+syntax enable
+endif
+
+set background=dark
+
+" Solarized {
+let g:solarized_termcolors=256
+let g:solarized_visibility="high"
+let g:solarized_contrast="high"
+" }
+
 if has('cmdline_info')
 set showcmd
 endif
 
-if &t_Co > 2 || has('gui_running')
-syntax on
-endif
-
-if &t_Co >= 256 || has('gui_running')
-colorscheme mustang
+if &t_Co >= 16 || has('gui_running')
+colorscheme solarized
 endif
 
 filetype plugin indent on
@@ -138,19 +161,6 @@ map <leader>e :NERDTreeFind<CR>
 nmap <leader>nt :NERDTreeFind<CR>
 nnoremap <silent> <leader>n :NERDTree .<CR>
 " }
-" }
-
-" Bundles {
-	Bundle 'gmarik/vundle'
-	Bundle 'tpope/vim-fugitive'
-	Bundle 'scrooloose/nerdtree'
-	Bundle 'godlygeek/csapprox'
-	Bundle 'MarcWeber/vim-addon-mw-utils'
-	Bundle 'tomtom/tlib_vim'
-	Bundle 'honza/snipmate-snippets'
-	Bundle 'garbas/vim-snipmate'
-	Bundle 'flazz/vim-colorschemes'
-	Bundle 'Lokaltog/powerline'
 " }
 
 " Plugins {
