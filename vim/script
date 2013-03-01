@@ -1,9 +1,12 @@
 #!/bin/zsh
 
 REPO=https://github.com
+MAIN=~/Downloads/misc/vim
 FONT=fontpatcher-symbols.sfd
 
 function setup {
+
+cd $MAIN
 cp .vimrc ~/
 
 mkdir -p ~/.vim/bundle
@@ -23,6 +26,15 @@ git clone $REPO/tomtom/tlib_vim
 git clone $REPO/honza/snipmate-snippets
 git clone $REPO/garbas/vim-snipmate
 git clone $REPO/flazz/vim-colorschemes
+git clone $REPO/Lokaltog/powerline-fonts
+
+cp powerline-fonts/SourceCodePro/Source\ Code\ \
+Pro\ Medium\ for\ Powerline.otf ~/.fonts
+
+cp powerline-fonts/DejaVuSansMono/DejaVu\ Sans\ \
+Mono\ for\ Powerline.otf ~/.fonts
+
+fc-cache -f ~/.fonts
 
 }
 
@@ -30,29 +42,45 @@ git clone $REPO/flazz/vim-colorschemes
 # sudo pip-3.2 install git+git://github.com/Lokaltog/powerline
 
 function load_font {
+
 cd ~/.vim/bundle/powerline/font/
 ./fontpatcher.py $FONT
 mv PowerlineSymbols\ for\ Powerline.otf ~/.fonts
 fc-cache -vf ~/.fonts
 mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d
+
 }
 
 function git_setup {
-git config --global user.name "salma-rodriguez"
-git config --global user.email "srodr063@fiu.edu"
+
 git config --global diff.tool vimdiff
 git config --global merge.tool vimdiff
 git config --global difftool.prompt false
+git config --global user.name "salma-rodriguez"
+git config --global user.email "srodr063@fiu.edu" 
+
+}
+
+function term_setup {
+
+cd $MAIN
+mkdir -p ~/.config/terminator/
+cp ./config ~/.config/terminator/
+
 }
 
 case "$1" in
+
 	all)
 		setup
-		load_font
 		git_setup
+		term_setup
 		;;
 	setup)
 		setup
+		;;
+	term_setup)
+		term_setup
 		;;
 	git_setup)
 		git_setup
