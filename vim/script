@@ -28,6 +28,9 @@ git clone $REPO/garbas/vim-snipmate
 git clone $REPO/flazz/vim-colorschemes
 git clone $REPO/Lokaltog/powerline-fonts
 
+cp powerline-fonts/Inconsolata/Inconsolata\ \
+for\ Powerline.otf ~/.fonts
+
 cp powerline-fonts/SourceCodePro/Source\ Code\ \
 Pro\ Medium\ for\ Powerline.otf ~/.fonts
 
