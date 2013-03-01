@@ -1,7 +1,7 @@
 [global_config]
   use_system_font = False
-  font = Source Code Pro for Powerline
   title_transmit_bg_color = "#d30102"
+  font = DejaVu Sans Mono for Powerline
   focus = system
 [keybindings]
 [profiles]
