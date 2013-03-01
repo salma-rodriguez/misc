@@ -4,7 +4,7 @@ REPO=https://github.com
 MAIN=~/Downloads/misc/vim
 FONT=fontpatcher-symbols.sfd
 
-function setup {
+function vim_setup {
 
 cd $MAIN
 cp .vimrc ~/
@@ -75,7 +75,7 @@ cp ./config ~/.config/terminator/
 case "$1" in
 
 	all)
-		setup
+		vim_setup
 		git_setup
 		term_setup
 		;;
