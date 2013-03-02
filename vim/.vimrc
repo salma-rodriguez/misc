@@ -5,9 +5,6 @@
 " Setup {
 filetype off
 
-" call pathogen#helptags()
-" call pathogen#runtime_append_all_bundles()
-
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
@@ -52,32 +49,23 @@ set pastetoggle=<F2>
 set spelllang=en_us
 set cpoptions+=$
 set virtualedit=all
+set background=dark
 set cindent
 " }
 
 " Bundles {
-	Bundle 'gmarik/vundle'
-	Bundle 'tpope/vim-fugitive'
-	Bundle 'scrooloose/nerdtree'
-	Bundle 'MarcWeber/vim-addon-mw-utils'
-	Bundle 'tomtom/tlib_vim'
-	Bundle 'honza/snipmate-snippets'
-	Bundle 'garbas/vim-snipmate'
-	Bundle 'flazz/vim-colorschemes'
-	Bundle 'Lokaltog/powerline'
-	Bundle 'altercation/vim-colors-solarized'
+        Bundle 'gmarik/vundle'
+        Bundle 'tpope/vim-fugitive'
+        Bundle 'scrooloose/nerdtree'
+        Bundle 'MarcWeber/vim-addon-mw-utils'
+        Bundle 'tomtom/tlib_vim'
+        Bundle 'honza/snipmate-snippets'
+        Bundle 'garbas/vim-snipmate'
+        Bundle 'flazz/vim-colorschemes'
+        Bundle 'Lokaltog/powerline'
 " }
 
 " Advanced Settings {
-" Basic GUI Settings {
-set background=dark
-
-if &t_Co > 2 || has('gui_running')
-syntax enable
-endif
-" }
-
-" Advanced GUI Settings {
 " Solarized {
 let g:solarized_bold=1
 let g:solarized_contrast="high"
@@ -87,28 +75,19 @@ let g:solarized_termcolors=16
 let g:solarized_termtrans=0
 let g:solarized_underline=1
 let g:solarized_visibility="high"
-" }
 
-" ColorScheme {
-if &t_Co >= 16
-if &t_Co == 16 || has('gui_running')
+if &t_Co >=16 || has('gui_running')
+	syntax enable
 	colorscheme solarized
-else
-	colorscheme mustang
-	Bundle 'godlygeek/csapprox'
 endif
-else
-	colorscheme default
-endif
-" }
 " }
 
 " Miscellaneous {
-filetype plugin indent on
-
 if has('cmdline_info')
 set showcmd
 endif
+
+filetype plugin indent on
 
 if has('autocmd')
 autocmd filetype python set expandtab
