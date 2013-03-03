@@ -78,7 +78,7 @@ let g:solarized_termtrans=0
 let g:solarized_underline=1
 let g:solarized_visibility="high"
 
-if &t_Co >=16 || has('gui_running')
+if &t_Co >= 16 || has('gui_running')
 	syntax enable
 	colorscheme solarized
 endif
@@ -134,7 +134,7 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-o> <C-w>o
-map <C-c> <C-w>c 
+map <C-c> <C-w>c
 
 map <Space> <C-D>
 map <BackSpace> <C-U>
