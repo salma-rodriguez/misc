@@ -3,7 +3,7 @@
 " }
 
 " Setup {
-filetype off
+filetype on
 
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
@@ -34,7 +34,7 @@ set incsearch
 set ruler
 set cursorline
 set winminheight=0
-set winheight=9999
+set equalalways
 set history=1000
 set undolevels=1000
 set wildignore=*.swp,*.bak,*.pyc,*.class
@@ -51,6 +51,8 @@ set cpoptions+=$
 set virtualedit=all
 set background=dark
 set cindent
+set wildmenu
+set wildmode=list:longest,full
 " }
 
 " Bundles {
@@ -114,6 +116,14 @@ endif
 
 " Mapping {
 " Basic {
+nnoremap ; :
+nnoremap j gj
+nnoremap k gk
+
+imap '' <Esc>
+vmap '' <Esc>
+cmap '' <Esc>
+
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
@@ -123,6 +133,16 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+map <C-o> <C-w>o
+map <C-c> <C-w>c 
+
+map <Space> <C-D>
+map <BackSpace> <C-U>
+
+nnoremap <Tab>h <C-w><S-h>
+nnoremap <Tab>j <C-w><S-j>
+nnoremap <Tab>k <C-w><S-k>
+nnoremap <Tab>l <C-w><S-l>
 
 nmap <silent> <leader>. :set list<CR>
 nmap <silent> <leader>m :set nolist<CR>
@@ -133,9 +153,11 @@ nmap <silent> <leader>s :set spell!<CR>
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-nnoremap ; :
-nnoremap j gj
-nnoremap k gk
+nmap <silent> <leader>wr :set winwidth=1<CR>
+nmap <silent> <leader>we :set winwidth=9999<CR>
+
+nmap <silent> <leader>fr :set winheight=1<CR>
+nmap <silent> <leader>fe :set winheight=9999<CR> 
 
 vmap Q gq
 nmap Q gqap
@@ -163,12 +185,5 @@ nnoremap <silent> <leader>n :NERDTree .<CR>
 " NerdTree {
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-" }
-
-" Powerline {
-let g:Powerline_symbols = 'fancy'
-let g:Powerline_theme = 'skwp'
-let g:Powerline_colorscheme = 'skwp'
-let g:Powerline_cache_enabled = 0
 " }
 " }
