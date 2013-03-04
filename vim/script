@@ -73,6 +73,10 @@ git config --global merge.tool vimdiff
 git config --global difftool.prompt false
 git config --global user.name "salma-rodriguez"
 git config --global user.email "srodr063@fiu.edu" 
+git config --global init.templatedir '~/.git_template'
+mkdir -p ~/.git_template/hooks
+cp ctags post-* ~/.git_template/hooks
+chmod 755 ~/.git_template/hooks/ctags ~/.git_template/hooks/post-*
 
 }
 
