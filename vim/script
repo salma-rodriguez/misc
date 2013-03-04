@@ -104,7 +104,7 @@ case "$1" in
 	load_font)
 		load_font
 		;;
-	config_powerline
+	config_powerline)
 		config_powerline
 		;;
 	esac
