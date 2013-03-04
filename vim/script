@@ -3,14 +3,18 @@
 REPO=https://github.com
 MAIN=~/Downloads/misc/vim
 FONT=fontpatcher-symbols.sfd
+POWR=~/.vim/bundle/powerline/powerline/config_files/
 
 function vim_setup {
 
 cd $MAIN
 cp .vimrc ~/
 
+mkdir -p ~/.vim/tmp
+mkdir -p ~/.vim/undo
 mkdir -p ~/.vim/bundle
 mkdir -p ~/.vim/colors
+mkdir -p ~/.vim/backup
 
 cd ~/.vim/bundle
 
@@ -54,6 +58,14 @@ mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d
 
 }
 
+function config_powerline {
+
+cd $POWR
+sed '31s/default/solarized/' config.json > tmp
+cat tmp > config.json; rm tmp
+
+}
+
 function git_setup {
 
 git config --global diff.tool vimdiff
@@ -77,6 +89,7 @@ case "$1" in
 	all)
 		vim_setup
 		git_setup
+		config_powerline
 		term_setup
 		;;
 	setup)
@@ -90,6 +103,9 @@ case "$1" in
 		;;
 	load_font)
 		load_font
+		;;
+	config_powerline
+		config_powerline
 		;;
 	esac
 
