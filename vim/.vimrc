@@ -1,189 +1,223 @@
 " Notes {
-" vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
+"	vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
 " }
 
 " Setup {
-filetype on
+	filetype on
 
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+	set rtp+=~/.vim/bundle/vundle
+	call vundle#rc()
 
-let mapleader=","
+	let mapleader=","
 " }
 
 " Basic Settings {
-set hidden
-set nocompatible
-set encoding=utf-8
-set nowrap
-set nolist
-set tabstop=8
-set backspace=indent,eol,start
-set autoindent
-set copyindent
-set number
-set shiftwidth=8
-set shiftround
-set showmatch
-set showmode
-set noignorecase
-set smartcase
-set smarttab
-set hlsearch
-set incsearch
-set ruler
-set cursorline
-set winminheight=0
-set equalalways
-set history=1000
-set undolevels=1000
-set wildignore=*.swp,*.bak,*.pyc,*.class
-set title
-set visualbell
-set noerrorbells
-set nobackup
-set noswapfile
-set t_Co=16
-set mouse=a
-set pastetoggle=<F2>
-set spelllang=en_us
-set cpoptions+=$
-set virtualedit=all
-set background=dark
-set cindent
-set wildmenu
-set wildmode=list:longest,full
+	set hidden
+	set noexrc
+	set nocompatible
+	set encoding=utf-8
+	set nowrap
+	set nolist
+	set softtabstop=8
+	set tabstop=8
+	set backspace=indent,eol,start
+	set autoindent
+	set copyindent
+	set number
+	set shiftwidth=8
+	set shiftround
+	set showmatch
+	set showmode
+	set ignorecase
+	set infercase
+	set smartcase
+	set smarttab
+	set hlsearch
+	set incsearch
+	set ruler
+	set cursorline
+	set winminheight=0
+	set equalalways
+	set history=1000
+	set undolevels=1000
+	set wildignore=*.swp,*.bak,*.pyc,*.class
+	set title
+	set visualbell
+	set noerrorbells
+	set nobackup
+	set noswapfile
+	set t_Co=16
+	set mouse=a
+	set pastetoggle=<F2>
+	set spelllang=en_us
+	set cpoptions+=$
+	set virtualedit=all
+	set background=dark
+	set cindent
+	set wildmenu
+	set wildmode=list:longest,full
+	set lazyredraw
+	set tabpagemax=10
+	set matchtime=5
+	set linespace=0
+	set formatoptions=rq
+	set showtabline=1
+	set colorcolumn=80,120
+	set cursorcolumn
+	set nostartofline
+	set numberwidth=5
+	set scrolloff=5
+	set sidescrolloff=5
+	set shortmess=aOstT
+	set autochdir
+	set clipboard+=unnamed
+	set backupdir=~/.vim/backup
+	set directory=~/.vim/tmp
+	set iskeyword+=_,$,@,%,#
+	set undodir=~/.vim/undo
+	set tags=~/.vim/tags/
+	set whichwrap=b,s,h,l,<,>,~,[,]
 " }
 
 " Bundles {
-        Bundle 'gmarik/vundle'
-        Bundle 'tpope/vim-fugitive'
-        Bundle 'scrooloose/nerdtree'
-        Bundle 'MarcWeber/vim-addon-mw-utils'
-        Bundle 'tomtom/tlib_vim'
-        Bundle 'honza/snipmate-snippets'
-        Bundle 'garbas/vim-snipmate'
-        Bundle 'flazz/vim-colorschemes'
-        Bundle 'Lokaltog/powerline'
+	Bundle 'gmarik/vundle'
+	Bundle 'tpope/vim-fugitive'
+	Bundle 'scrooloose/nerdtree'
+	Bundle 'MarcWeber/vim-addon-mw-utils'
+	Bundle 'tomtom/tlib_vim'
+	Bundle 'honza/snipmate-snippets'
+	Bundle 'garbas/vim-snipmate'
+	Bundle 'flazz/vim-colorschemes'
+	Bundle 'Lokaltog/powerline'
 " }
 
 " Advanced Settings {
-" Solarized {
-let g:solarized_bold=1
-let g:solarized_contrast="high"
-let g:solarized_degrade=0
-let g:solarized_italic=1
-let g:solarized_termcolors=16
-let g:solarized_termtrans=0
-let g:solarized_underline=1
-let g:solarized_visibility="high"
+	" Folding {
+		set foldenable
+		set foldmarker={,}
+		set foldmethod=marker
+		set foldlevel=9999
+		set foldopen=block,hor,mark,percent,quickfix,tag
+		function SimpleFoldText() " {
+			return getline(v:foldstart).' '
+		endfunction " }
+		set foldtext=SimpleFoldText()
+	" }
 
-if &t_Co >= 16 || has('gui_running')
-	syntax enable
-	colorscheme solarized
-endif
-" }
+	" Solarized {
+		let g:solarized_bold=1
+		let g:solarized_contrast="high"
+		let g:solarized_degrade=0
+		let g:solarized_italic=1
+		let g:solarized_termcolors=16
+		let g:solarized_termtrans=0
+		let g:solarized_underline=1
+		let g:solarized_visibility="high"
 
-" Miscellaneous {
-if has('cmdline_info')
-set showcmd
-endif
+		if &t_Co >= 16 || has('gui_running')
+			syntax enable
+			colorscheme solarized
+		endif
+	" }
 
-filetype plugin indent on
+	" Miscellaneous {
+		if has('cmdline_info')
+			set showcmd
+		endif
 
-if has('autocmd')
-autocmd filetype python set expandtab
-endif
+		filetype plugin indent on
 
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
-autocmd filetype html,xml set listchars=tab:>.
-set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%v\ %P%)
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-" }
+		if has('autocmd')
+			autocmd filetype python set expandtab
+		endif
 
-" Status Line {
-if has('statusline')
-set laststatus=2
-set statusline=%<%f\
-set statusline+=%w%h%m%r
-set statusline+=%{fugitive#statusline()}
-set statusline+=\ [%{&ff}/%Y]
-set statusline+=\ [%{getcwd()}]
-set statusline+=%=%-14.(%l,%c%V%)\ %p%%
-endif
-" }
+		set listchars=tab:>.,trail:.,extends:#,nbsp:.
+		autocmd filetype html,xml set listchars=tab:>.
+		set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%v\ %P%)
+		set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+	" }
+
+	" Status Line {
+		if has('statusline')
+			set laststatus=2
+			set statusline=%<%f\
+			set statusline+=%w%h%m%r
+			set statusline+=%{fugitive#statusline()}
+			set statusline+=\ [%{&ff}/%Y]
+			set statusline+=\ [%{getcwd()}]
+			set statusline+=%=%-14.(%l,%c%V%)\ %p%%
+		endif
+	" }
 " }
 
 " Mapping {
-" Basic {
-nnoremap ; :
-nnoremap j gj
-nnoremap k gk
+	" Basic {
+ 		vmap Q gq
+		nmap Q gqap 
 
-imap '' <Esc>
-vmap '' <Esc>
-cmap '' <Esc>
+		imap '' <Esc>
+		vmap '' <Esc>
+		cmap '' <Esc>
 
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
+		nnoremap ; :
+		nnoremap j gj
+		nnoremap k gk
 
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-map <C-o> <C-w>o
-map <C-c> <C-w>c
+		map <C-h> <C-w>h
+		map <C-j> <C-w>j
+		map <C-k> <C-w>k
+		map <C-l> <C-w>l
+		map <C-o> <C-w>o
+		map <C-c> <C-w>c
 
-map <Space> <C-D>
-map <BackSpace> <C-U>
+		map <Space> <C-D>
+		map <BackSpace> <C-U>
 
-nnoremap <Tab>h <C-w><S-h>
-nnoremap <Tab>j <C-w><S-j>
-nnoremap <Tab>k <C-w><S-k>
-nnoremap <Tab>l <C-w><S-l>
+		nnoremap <Tab>h <C-w><S-h>
+		nnoremap <Tab>j <C-w><S-j>
+		nnoremap <Tab>k <C-w><S-k>
+		nnoremap <Tab>l <C-w><S-l>
+ 
+		cmap w!! w !sudo tee % > /dev/null 
 
-nmap <silent> <leader>. :set list<CR>
-nmap <silent> <leader>m :set nolist<CR>
+		nmap <silent> <leader>? :set hls<CR>
+		nmap <silent> <leader>/ :nohlsearch<CR>
 
-nmap <silent> <leader>/ :nohlsearch<CR>
-nmap <silent> <leader>s :set spell!<CR>
+ 		nmap <silent> <leader>. :set list<CR>
+		nmap <silent> <leader>m :set nolist<CR> 
 
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+		nmap <silent> <leader>s :set spell!<CR>
 
-nmap <silent> <leader>wr :set winwidth=1<CR>
-nmap <silent> <leader>we :set winwidth=9999<CR>
+		nmap <silent> <leader>ev :e $MYVIMRC<CR>
+		nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-nmap <silent> <leader>fr :set winheight=1<CR>
-nmap <silent> <leader>fe :set winheight=9999<CR> 
+		nmap <silent> <leader>wr :set winwidth=1<CR>
+		nmap <silent> <leader>we :set winwidth=9999<CR>
 
-vmap Q gq
-nmap Q gqap
-cmap w!! w !sudo tee % > /dev/null
-" }
+		nmap <silent> <leader>fr :set winheight=1<CR>
+		nmap <silent> <leader>fe :set winheight=9999<CR> 
+	" }
 
-" Fugitive {
-nnoremap <silent> <leader>gb :Gblame<CR>
-nnoremap <silent> <leader>gd :Gdiff<CR>
-nnoremap <silent> <leader>gl :Glog<CR>
-nnoremap <silent> <leader>gr :Gread<CR>
-nnoremap <silent> <leader>gs :Gstatus<CR>
-nnoremap <silent> <leader>gw :Gwrite<CR>
-" }
+	" Fugitive {
+		nnoremap <silent> <leader>gl :Glog<CR>
+		nnoremap <silent> <leader>gr :Gread<CR>
+		nnoremap <silent> <leader>gd :Gdiff<CR>
+		nnoremap <silent> <leader>gw :Gwrite<CR>
+		nnoremap <silent> <leader>gb :Gblame<CR>
+		nnoremap <silent> <leader>gs :Gstatus<CR>
+	" }
 
-" NerdTree {
-map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
-map <leader>e :NERDTreeFind<CR>
-nmap <leader>nt :NERDTreeFind<CR>
-nnoremap <silent> <leader>n :NERDTree .<CR>
-" }
+	" NerdTree {
+		map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+		map <leader>e :NERDTreeFind<CR>
+		nmap <leader>nt :NERDTreeFind<CR>
+		nnoremap <silent> <leader>n :NERDTree .<CR>
+	" }
 " }
 
 " Plugins {
-" NerdTree {
-autocmd vimenter * if !argc() | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-" }
+	" NerdTree {
+		autocmd vimenter * if !argc() | NERDTree | endif
+		autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+	" }
 " }
