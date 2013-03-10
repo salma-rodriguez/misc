@@ -3,12 +3,14 @@
 " }
 
 " Setup {
-	filetype on
-
+	filetype off
+	let mapleader=","
 	set rtp+=~/.vim/bundle/vundle
 	call vundle#rc()
 
-	let mapleader=","
+	filetype on
+	filetype plugin on
+	filetype indent on
 " }
 
 " Basic Settings {
@@ -18,14 +20,17 @@
 	set encoding=utf-8
 	set nowrap
 	set nolist
-	set softtabstop=8
 	set tabstop=8
+	set shiftwidth=8
+	set softtabstop=8
+	set shiftround
+	set mousehide
+	set expandtab
 	set backspace=indent,eol,start
 	set autoindent
+	set tagstack
 	set copyindent
-	set number
-	set shiftwidth=8
-	set shiftround
+	set relativenumber
 	set showmatch
 	set showmode
 	set ignorecase
@@ -34,6 +39,7 @@
 	set smarttab
 	set hlsearch
 	set incsearch
+	set synmaxcol=1024
 	set ruler
 	set cursorline
 	set winminheight=0
@@ -50,7 +56,8 @@
 	set mouse=a
 	set pastetoggle=<F2>
 	set spelllang=en_us
-	set cpoptions+=$
+	set cpoptions+=ces$
+	set printoptions=header:0,duplex:long,paper:letter
 	set virtualedit=all
 	set background=dark
 	set cindent
@@ -65,18 +72,26 @@
 	set colorcolumn=80,120
 	set cursorcolumn
 	set nostartofline
-	set numberwidth=5
-	set scrolloff=5
-	set sidescrolloff=5
+	set numberwidth=3
+	set scrolloff=8
+	set sidescrolloff=8
 	set shortmess=aOstT
 	set autochdir
 	set clipboard+=unnamed
 	set backupdir=~/.vim/backup
-	set directory=~/.vim/tmp
 	set iskeyword+=_,$,@,%,#
 	set undodir=~/.vim/undo
 	set tags=~/.vim/tags/
 	set whichwrap=b,s,h,l,<,>,~,[,]
+	set directory=~/.vim/tmp
+	set laststatus=2
+	set showfulltag
+	set textwidth=80
+        set fillchars = ""
+        set diffopt+=iwhite
+        set autoread
+        set grepprg=grep\ -nH\ $*
+        set timeoutlen=500
 " }
 
 " Bundles {
@@ -97,7 +112,7 @@
 		set foldmarker={,}
 		set foldmethod=marker
 		set foldlevel=9999
-		set foldopen=block,hor,mark,percent,quickfix,tag
+		set foldopen=block,insert,jump,hor,mark,percent,quickfix,search,tag,undo
 		function SimpleFoldText() " {
 			return getline(v:foldstart).' '
 		endfunction " }
@@ -125,12 +140,6 @@
 			set showcmd
 		endif
 
-		filetype plugin indent on
-
-		if has('autocmd')
-			autocmd filetype python set expandtab
-		endif
-
 		set listchars=tab:>.,trail:.,extends:#,nbsp:.
 		autocmd filetype html,xml set listchars=tab:>.
 		set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%v\ %P%)
@@ -139,7 +148,6 @@
 
 	" Status Line {
 		if has('statusline')
-			set laststatus=2
 			set statusline=%<%f\
 			set statusline+=%w%h%m%r
 			set statusline+=%{fugitive#statusline()}
@@ -154,48 +162,104 @@
 	" Basic {
  		vmap Q gq
 		nmap Q gqap 
-
 		imap '' <Esc>
 		vmap '' <Esc>
-		cmap '' <Esc>
 
 		nnoremap ; :
-		nnoremap j gj
-		nnoremap k gk
-
-		map <C-h> <C-w>h
-		map <C-j> <C-w>j
-		map <C-k> <C-w>k
-		map <C-l> <C-w>l
-		map <C-o> <C-w>o
-		map <C-c> <C-w>c
+                nnoremap j gj
+                nnoremap k gk
 
 		map <Space> <C-D>
 		map <BackSpace> <C-U>
 
-		nnoremap <Tab>h <C-w><S-h>
-		nnoremap <Tab>j <C-w><S-j>
-		nnoremap <Tab>k <C-w><S-k>
-		nnoremap <Tab>l <C-w><S-l>
- 
-		cmap w!! w !sudo tee % > /dev/null 
+		nmap <silent> <leader>a 10zl
+		nmap <silent> <leader>f 10zh
 
-		nmap <silent> <leader>? :set hls<CR>
-		nmap <silent> <leader>/ :nohlsearch<CR>
+		cmap w!! w !sudo tee % > /dev/null
+		nmap ,x :w<CR>:!chmod 755 %<CR>:e<CR> 
 
- 		nmap <silent> <leader>. :set list<CR>
-		nmap <silent> <leader>m :set nolist<CR> 
-
+                nmap <silent> <leader>cd :lcd %:h<CR>
+ 		nmap <silent> <leader>/ :nohlsearch<CR>
 		nmap <silent> <leader>s :set spell!<CR>
-
 		nmap <silent> <leader>ev :e $MYVIMRC<CR>
 		nmap <silent> <leader>sv :so $MYVIMRC<CR>
+		nmap <silent> <leader>wa :1,9000bwipeout<CR>
+		nmap <silent> <leader>md :!mkdir -p %:p:h<CR>
+                nmap <silent> <leader>hl :set invcursorline<CR>
+		nmap <silent> <leader>hc :set invcursorcolumn<CR> 
+                nmap <silent> <leader>dcs :set background=dark<CR>
+		nmap <silent> <leader>lcs :set background=light<CR>
 
-		nmap <silent> <leader>wr :set winwidth=1<CR>
-		nmap <silent> <leader>we :set winwidth=9999<CR>
+		nmap <silent> <leader>ww :set invwrap<CR>:set wrap?<CR>
+		nmap <silent> <leader>p :set invpaste<CR>:set paste?<CR>
 
+		nmap <silent> <leader>? :set invhls<CR>:set invhls?<CR>
+ 		nmap <silent> <leader>. :set invlist<CR>:set invlist?<CR>
+		
+		imap <leader>fn <C-R>=expand('%:t:r')<CR>
+                nmap <silent> ,C :set opfunc=ClearText<CR>g@
+		vmap <silent> ,C :<C-U>call ClearText(visual(), 1)<CR>
+
+        	nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
+
+                " let loaded_matchparen = 1
+		function! ClearText(type, ...)
+		        let sel_save = &selection
+		        let &selection = "inclusive"
+		        let reg_save = @@
+		        if a:0
+		                silent exe "normal! '<" . a:type . "'>r w"
+                        elseif a:type == 'line'
+                                silent exe "normal! '[V']r w"
+                        elseif a:type == 'block'
+                                silent exe "normal! `[\<C-V>`]r w"
+                        else
+                                silent exe "normal! `[v`]r w"
+                        endif
+                        let &selection = sel_save
+                        let @@ = reg_save
+                endfunction
+
+                au FilterWritePre * if &diff | colorscheme BlackSea | endif
+	" }
+	
+	" Window {
+	 	map <C-h> <C-w>h
+		map <C-j> <C-w>j
+		map <C-k> <C-w>k
+		map <C-l> <C-w>l
+		map <C-o> <C-w>o
+		map <C-c> <C-w>c 
+
+                nnoremap <Tab>h <C-w><S-h>
+		nnoremap <Tab>j <C-w><S-j>
+		nnoremap <Tab>k <C-w><S-k>
+		nnoremap <Tab>l <C-w><S-l>  
+
+ 		noremap <silent> <C-7> <C-W><
+		noremap <silent> <C-8> <C-W>-
+		noremap <silent> <C-9> <C-W>+
+		noremap <silent> <C-0> <C-W>> 
+
+		noremap <silent> <leader>cc :close<CR>
+		noremap <silent> <leader>cw :cclose<CR>
+
+                nmap <silent> <leader>wr :set winwidth=1<CR>
+		nmap <silent> <leader>we :set winwidth=9999<CR> 
 		nmap <silent> <leader>fr :set winheight=1<CR>
 		nmap <silent> <leader>fe :set winheight=9999<CR> 
+
+                noremap <silent> <C-F9> :vertical resize -10<CR>
+		noremap <silent> <C-F10> :resize +10<CR>
+		noremap <silent> <C-F11> :resize -10<CR>
+		noremap <silent> <C-F12> :vertical resize +10<CR>
+
+		noremap <silent> <leader>cj :wincmd j<CR>:close<CR>
+		noremap <silent> <leader>ck :wincmd k<CR>:close<CR>
+		noremap <silent> <leader>ch :wincmd h<CR>:close<CR>
+		noremap <silent> <leader>cl :wincmd l<CR>:close<CR>
+
+		nmap <silent> <leader>sw :execute ":resize " . line('$')<CR> 
 	" }
 
 	" Fugitive {
@@ -205,19 +269,18 @@
 		nnoremap <silent> <leader>gw :Gwrite<CR>
 		nnoremap <silent> <leader>gb :Gblame<CR>
 		nnoremap <silent> <leader>gs :Gstatus<CR>
+		nnoremap <silent> <leader>gD :diffoff!<CR><C-W>h:bd<CR> :colorscheme solarized<CR>
 	" }
 
 	" NerdTree {
-		map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+		map <C-E> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 		map <leader>e :NERDTreeFind<CR>
 		nmap <leader>nt :NERDTreeFind<CR>
 		nnoremap <silent> <leader>n :NERDTree .<CR>
-	" }
-" }
-
-" Plugins {
-	" NerdTree {
+		let NERDTreeIgnore=[ '\.obj$','\.o$','\.pdf' ]
+		let NERDTreeShowBookmarks=1
 		autocmd vimenter * if !argc() | NERDTree | endif
-		autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+                autocmd bufenter * if (winnr("$") == 1 && exists("
+                \ b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 	" }
 " }
