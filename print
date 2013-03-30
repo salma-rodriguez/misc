@@ -1,8 +1,32 @@
 #!/bin/zsh
 
-lp -d MFC7360N $1 -n $2 -P $3 \
-        -o fit-to-page \
-        -o page-top=0 \
-        -o page-bottom=0 \
-        -o page-left=0 \
-        -o page-right=0 \
+function long {
+        lp -d MFC7360N $1 -n $2 -P $3 \
+                -o fit-to-page \
+                -o page-top=18 \
+                -o page-bottom=36 \
+                -o page-left=18 \
+                -o page-right=36 \
+}
+
+function default {
+        lp -d MFC7360N $1 -n $2
+}
+
+function quick {
+        default $1 1
+}
+
+case "$1" in 
+        -l)
+                long $2 $3 $4
+                ;;
+        -q)
+                quick $2
+                ;;
+        -d)
+                default
+                ;;
+        esac
+
+exit 0
