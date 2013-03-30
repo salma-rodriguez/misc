@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+lp -d MFC7360N $1 -n $2 -P $3 \
+        -o fit-to-page \
+        -o page-top=0 \
+        -o page-bottom=0 \
+        -o page-left=0 \
+        -o page-right=0 \
