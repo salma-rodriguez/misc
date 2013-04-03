@@ -1,7 +1,9 @@
 #!/bin/zsh
 
+PRINTER="MFC7360N"
+
 function long {
-        lp -d MFC7360N $1 -n $2 -P $3 \
+        lp -d $PRINTER $1 -n $2 -P $3 \
                 -o fit-to-page \
                 -o page-top=36 \
                 -o page-bottom=36 \
@@ -9,8 +11,21 @@ function long {
                 -o page-right=36 \
 }
 
+function odd {
+        lp -d $PRINTER $1 -P $(seq 1 2 $2 |\
+                sed ':a;N;$!ba;s/\n/,/g') \
+                -o fit-to-page
+}
+
+function even {
+        lp -d $PRINTER $1 -P $(seq 2 2 $2 |\
+                sed ':a;N;$!ba;s/\n/,/g') \
+                -o fit-to-page
+}
+
 function default {
-        lp -d MFC7360N $1 -n $2
+        lp -d $PRINTER $1 -n $2 \
+                -o fit-to-page
 }
 
 function quick {
@@ -20,6 +35,12 @@ function quick {
 case "$1" in 
         -l)
                 long $2 $3 $4
+                ;;
+        -o)
+                odd $2 $3
+                ;;
+        -e)
+                even $2 $3
                 ;;
         -q)
                 quick $2
