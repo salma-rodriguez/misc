@@ -40,7 +40,7 @@
 	set hlsearch
 	set incsearch
 	set synmaxcol=1024
-	set ruler
+        set ruler
 	set cursorline
 	set winminheight=0
 	set equalalways
@@ -103,7 +103,7 @@
 	Bundle 'honza/snipmate-snippets'
 	Bundle 'garbas/vim-snipmate'
 	Bundle 'flazz/vim-colorschemes'
-	Bundle 'Lokaltog/powerline'
+	Bundle 'hced/bufkill-vim'
 " }
 
 " Advanced Settings {
@@ -142,18 +142,18 @@
 
 		set listchars=tab:>.,trail:.,extends:#,nbsp:.
 		autocmd filetype html,xml set listchars=tab:>.
-		set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%v\ %P%)
+	        set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%v\ %P%)
 		set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 	" }
 
 	" Status Line {
 		if has('statusline')
-			set statusline=%<%f\
-			set statusline+=%w%h%m%r
-			set statusline+=%{fugitive#statusline()}
-			set statusline+=\ [%{&ff}/%Y]
-			set statusline+=\ [%{getcwd()}]
-			set statusline+=%=%-14.(%l,%c%V%)\ %p%%
+		        set statusline=%<%f\
+		        set statusline+=%w%h%m%r
+		        set statusline+=%{fugitive#statusline()}
+		        set statusline+=\ [%{&ff}/%Y]
+		        set statusline+=\ [%{getcwd()}]
+		        set statusline+=%=%-14.(%l,%c%V%)\ %p%%
 		endif
 	" }
 " }
@@ -172,37 +172,44 @@
 		map <Space> <C-D>
 		map <BackSpace> <C-U>
 
+                map <leader>hx :%!xxd<CR>
+                map <leader>hq :%!xxd -r<CR>
+
 		nmap <silent> <leader>a 10zl
 		nmap <silent> <leader>f 10zh
-
-		cmap w!! w !sudo tee % > /dev/null
-		nmap ,x :w<CR>:!chmod 755 %<CR>:e<CR> 
 
                 nmap <silent> <leader>cd :lcd %:h<CR>
  		nmap <silent> <leader>/ :nohlsearch<CR>
 		nmap <silent> <leader>s :set spell!<CR>
+
 		nmap <silent> <leader>ev :e $MYVIMRC<CR>
 		nmap <silent> <leader>sv :so $MYVIMRC<CR>
-		nmap <silent> <leader>wa :1,9000bwipeout<CR>
-		nmap <silent> <leader>md :!mkdir -p %:p:h<CR>
-                nmap <silent> <leader>hl :set invcursorline<CR>
-		nmap <silent> <leader>hc :set invcursorcolumn<CR> 
+
                 nmap <silent> <leader>dcs :set background=dark<CR>
 		nmap <silent> <leader>lcs :set background=light<CR>
-
+		
+	" }
+	
+	" Toggle {
+                nmap <silent> <leader>hl :set invcursorline<CR>
+		nmap <silent> <leader>hk :set invcursorcolumn<CR> 
 		nmap <silent> <leader>ww :set invwrap<CR>:set wrap?<CR>
 		nmap <silent> <leader>p :set invpaste<CR>:set paste?<CR>
-
 		nmap <silent> <leader>? :set invhls<CR>:set invhls?<CR>
  		nmap <silent> <leader>. :set invlist<CR>:set invlist?<CR>
-		
+	" }
+	
+	" Advanced {
+		cmap w!! w !sudo tee % > /dev/null
+		nmap <silent> <leader>wa :1,9000bwipeout<CR>
+		nmap <silent> <leader>md :!mkdir -p %:p:h<CR>
+                nmap <silent> <leader>x :w<CR>:!chmod 755 %<CR>:e<CR> 
 		imap <leader>fn <C-R>=expand('%:t:r')<CR>
-                nmap <silent> ,C :set opfunc=ClearText<CR>g@
-		vmap <silent> ,C :<C-U>call ClearText(visual(), 1)<CR>
+                nmap <silent> <leader>C :set opfunc=ClearText<CR>g@
+		vmap <silent> <leader>C :<C-U>call ClearText(visual(), 1)<CR>
+        	nmap <silent>gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
 
-        	nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
-
-                " let loaded_matchparen = 1
+                let loaded_matchparen = 1
 		function! ClearText(type, ...)
 		        let sel_save = &selection
 		        let &selection = "inclusive"
@@ -241,6 +248,8 @@
 		noremap <silent> <C-9> <C-W>+
 		noremap <silent> <C-0> <C-W>> 
 
+	        nmap <silent> <leader>bd :BD<CR>
+
 		noremap <silent> <leader>cc :close<CR>
 		noremap <silent> <leader>cw :cclose<CR>
 
@@ -269,7 +278,8 @@
 		nnoremap <silent> <leader>gw :Gwrite<CR>
 		nnoremap <silent> <leader>gb :Gblame<CR>
 		nnoremap <silent> <leader>gs :Gstatus<CR>
-		nnoremap <silent> <leader>gD :diffoff!<CR><C-W>h:bd<CR> :colorscheme solarized<CR>
+		nnoremap <silent> <leader>gD :diffoff!<CR><C-W>h:bd<CR>
+                \ :colorscheme solarized<CR>
 	" }
 
 	" NerdTree {
@@ -279,7 +289,7 @@
 		nnoremap <silent> <leader>n :NERDTree .<CR>
 		let NERDTreeIgnore=[ '\.obj$','\.o$','\.pdf' ]
 		let NERDTreeShowBookmarks=1
-		autocmd vimenter * if !argc() | NERDTree | endif
+		" autocmd vimenter * if !argc() | NERDTree | endif
                 autocmd bufenter * if (winnr("$") == 1 && exists("
                 \ b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 	" }
