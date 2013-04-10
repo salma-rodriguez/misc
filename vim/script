@@ -31,6 +31,9 @@ git clone $REPO/honza/snipmate-snippets
 git clone $REPO/garbas/vim-snipmate
 git clone $REPO/flazz/vim-colorschemes
 git clone $REPO/Lokaltog/powerline-fonts
+git clone $REPO/hced/bufkill-vim
+
+# fonts
 
 cp powerline-fonts/Inconsolata/Inconsolata\ \
 for\ Powerline.otf ~/.fonts
@@ -74,6 +77,9 @@ git config --global difftool.prompt false
 git config --global user.name "salma-rodriguez"
 git config --global user.email "srodr063@fiu.edu" 
 git config --global init.templatedir '~/.git_template'
+git config --global credential.helper cache
+git config credential.helper 'cache --timeout=3600'
+
 mkdir -p ~/.git_template/hooks
 cp ctags post-* ~/.git_template/hooks
 chmod 755 ~/.git_template/hooks/ctags ~/.git_template/hooks/post-*
@@ -96,21 +102,27 @@ case "$1" in
 		config_powerline
 		term_setup
 		;;
+
 	setup)
 		setup
 		;;
+
 	term_setup)
 		term_setup
 		;;
+
 	git_setup)
 		git_setup
 		;;
+
 	load_font)
 		load_font
 		;;
+
 	config_powerline)
 		config_powerline
 		;;
-	esac
+
+esac
 
 exit 0
