@@ -3,8 +3,8 @@
 " }
 
 " Setup {
-	filetype off
 	let mapleader=","
+        let loaded_matchparen = 1
 	set rtp+=~/.vim/bundle/vundle
 	call vundle#rc()
 
@@ -209,7 +209,6 @@
 		vmap <silent> <leader>C :<C-U>call ClearText(visual(), 1)<CR>
         	nmap <silent>gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
 
-                let loaded_matchparen = 1
 		function! ClearText(type, ...)
 		        let sel_save = &selection
 		        let &selection = "inclusive"
