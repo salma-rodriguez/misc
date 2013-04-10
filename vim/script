@@ -8,6 +8,7 @@ POWR=~/.vim/bundle/powerline/powerline/config_files/
 function vim_setup {
 
 cd $MAIN
+
 cp .vimrc ~/
 
 mkdir -p ~/.vim/tmp
@@ -27,7 +28,7 @@ git clone $REPO/scrooloose/nerdtree
 git clone $REPO/godlygeek/csapprox
 git clone $REPO/MarcWeber/vim-addon-mw-utils
 git clone $REPO/tomtom/tlib_vim
-git clone $REPO/honza/snipmate-snippets
+git clone $REPO/scrooloose/snipmate-snippets
 git clone $REPO/garbas/vim-snipmate
 git clone $REPO/flazz/vim-colorschemes
 git clone $REPO/Lokaltog/powerline-fonts
@@ -64,12 +65,15 @@ mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d
 function config_powerline {
 
 cd $POWR
-sed '31s/default/solarized/' config.json > tmp
+
+sed '35s/default/solarized/' config.json > tmp
 cat tmp > config.json; rm tmp
 
 }
 
 function git_setup {
+
+cd $MAIN
 
 git config --global diff.tool vimdiff
 git config --global merge.tool vimdiff
@@ -90,18 +94,31 @@ function term_setup {
 
 cd $MAIN
 mkdir -p ~/.config/terminator/
-cp ./config ~/.config/terminator/
+cp config ~/.config/terminator/
+
+}
+
+function clean {
+
+rm -rf ~/.vim
+rm -f ~/.vimrc
+rm -rf ~/.git_template
+rm -rf ~/.config/terminator
 
 }
 
 case "$1" in
 
 	all)
-		vim_setup
 		git_setup
+		vim_setup
 		config_powerline
 		term_setup
 		;;
+
+	clean)
+	        clean
+                ;;
 
 	setup)
 		setup
