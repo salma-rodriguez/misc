@@ -37,13 +37,13 @@ git clone $REPO/hced/bufkill-vim
 # fonts
 
 cp powerline-fonts/Inconsolata/Inconsolata\ \
-for\ Powerline.otf ~/.fonts
+for\ Powerline.otf ~/.fonts/
 
 cp powerline-fonts/SourceCodePro/Source\ Code\ \
-Pro\ Medium\ for\ Powerline.otf ~/.fonts
+Pro\ Medium\ for\ Powerline.otf ~/.fonts/
 
 cp powerline-fonts/DejaVuSansMono/DejaVu\ Sans\ \
-Mono\ for\ Powerline.otf ~/.fonts
+Mono\ for\ Powerline.otf ~/.fonts/
 
 fc-cache -f ~/.fonts
 
@@ -123,7 +123,9 @@ case "$1" in
 	setup)
 		setup
 		;;
-
+	vim_setup)
+		vim_setup
+		;;
 	term_setup)
 		term_setup
 		;;
