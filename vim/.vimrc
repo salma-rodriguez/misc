@@ -158,6 +158,7 @@
 	" Powerline {
 	        let g:Powerline_symbols="fancy"
 	" }
+	
 " }
 
 " Mapping {
