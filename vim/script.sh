@@ -40,7 +40,7 @@ cp powerline-fonts/Inconsolata/Inconsolata\ \
 for\ Powerline.otf ~/.fonts/
 
 cp powerline-fonts/SourceCodePro/Sauce\ Code\ \
-Powerline\ Medium.otf ~/.fonts/
+Powerline\ Regular.otf ~/.fonts/
 
 fc-cache -f ~/.fonts
 
