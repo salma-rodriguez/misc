@@ -11,6 +11,7 @@ cd $MAIN
 
 cp .vimrc ~/
 
+mkdir -p ~/.fonts
 mkdir -p ~/.vim/tmp
 mkdir -p ~/.vim/undo
 mkdir -p ~/.vim/bundle
@@ -32,18 +33,14 @@ git clone $REPO/scrooloose/snipmate-snippets
 git clone $REPO/garbas/vim-snipmate
 git clone $REPO/flazz/vim-colorschemes
 git clone $REPO/Lokaltog/powerline-fonts
-git clone $REPO/hced/bufkill-vim
 
 # fonts
 
 cp powerline-fonts/Inconsolata/Inconsolata\ \
 for\ Powerline.otf ~/.fonts/
 
-cp powerline-fonts/SourceCodePro/Source\ Code\ \
-Pro\ Medium\ for\ Powerline.otf ~/.fonts/
-
-cp powerline-fonts/DejaVuSansMono/DejaVu\ Sans\ \
-Mono\ for\ Powerline.otf ~/.fonts/
+cp powerline-fonts/SourceCodePro/Sauce\ Code\ \
+Powerline\ Medium.otf ~/.fonts/
 
 fc-cache -f ~/.fonts
 
