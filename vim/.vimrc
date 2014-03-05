@@ -31,6 +31,7 @@
 	set tagstack
 	set copyindent
 	set relativenumber
+	set number
 	set showmatch
 	set showmode
 	set ignorecase
@@ -195,7 +196,7 @@
 	
 	" Toggle {
                 nmap <silent> <leader>hl :set invcursorline<CR>
-		nmap <silent> <leader>hc :set invcursorcolumn<CR> 
+		nmap <silent> <leader>hk :set invcursorcolumn<CR> 
 		nmap <silent> <leader>ww :set invwrap<CR>:set wrap?<CR>
 		nmap <silent> <leader>p :set invpaste<CR>:set paste?<CR>
 		nmap <silent> <leader>? :set invhls<CR>:set invhls?<CR>
@@ -229,7 +230,12 @@
                         let @@ = reg_save
                 endfunction
 
-                au FilterWritePre * if &diff | colorscheme BlackSea | set colorcolumn= | set nocursorcolumn | endif
+                au FilterWritePre * if &diff | colorscheme BlackSea | 
+                                        \ set colorcolumn= |  
+                                        \ set nocursorcolumn | 
+                                        \ highlight DiffText cterm=none ctermfg=Red ctermbg=LightGrey |
+                                        \ highlight DiffChange cterm=none ctermfg=Black ctermbg=LightGrey |
+                                        \ endif
 	" }
 	
 	" Window {
