@@ -5,6 +5,7 @@
 " Setup {
 	let mapleader=","
         let loaded_matchparen = 1
+
 	set rtp+=~/.vim/bundle/vundle
 	call vundle#rc()
 
@@ -114,9 +115,11 @@
 		set foldmethod=marker
 		set foldlevel=9999
 		set foldopen=block,insert,jump,hor,mark,percent,quickfix,search,tag,undo
+
 		function SimpleFoldText() " {
 			return getline(v:foldstart).' '
 		endfunction " }
+
 		set foldtext=SimpleFoldText()
 	" }
 
@@ -232,6 +235,7 @@
 
                 au FilterWritePre * if &diff | colorscheme BlackSea | 
                                         \ set colorcolumn= |  
+                                        \ set nocursorline |
                                         \ set nocursorcolumn | 
                                         \ highlight DiffText cterm=none ctermfg=Red ctermbg=LightGrey |
                                         \ highlight DiffChange cterm=none ctermfg=Black ctermbg=LightGrey |
