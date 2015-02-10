@@ -33,6 +33,7 @@ git clone $REPO/scrooloose/snipmate-snippets
 git clone $REPO/garbas/vim-snipmate
 git clone $REPO/flazz/vim-colorschemes
 git clone $REPO/Lokaltog/powerline-fonts
+git clone $REPO/Townk/vim-autoclose
 
 # fonts
 
