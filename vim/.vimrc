@@ -106,6 +106,7 @@
 	Bundle 'garbas/vim-snipmate'
 	Bundle 'flazz/vim-colorschemes'
 	Bundle 'hced/bufkill-vim'
+	Bundle 'Townk/vim-autoclose'
 " }
 
 " Advanced Settings {
@@ -145,7 +146,7 @@
 		endif
 
 		set listchars=tab:>.,trail:.,extends:#,nbsp:.
-		autocmd filetype html,xml set listchars=tab:>.
+		autocmd filetype html,xml,py set listchars=tab:>.
 	        set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%v\ %P%)
 		set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 	" }
@@ -240,6 +241,11 @@
                                         \ highlight DiffText cterm=none ctermfg=Red ctermbg=LightGrey |
                                         \ highlight DiffChange cterm=none ctermfg=Black ctermbg=LightGrey |
                                         \ endif
+	" }
+	
+	" Commands {
+	        nmap <silent> <leader>gt :execute "!zsh goldscript.sh -r"<CR>
+	        nmap <silent> <leader>pt :execute "!zsh goldscript.sh -w"<CR>
 	" }
 	
 	" Window {
