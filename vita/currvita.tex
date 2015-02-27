@@ -1,0 +1,244 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Classicthesis-Styled CV
+% LaTeX Template
+% Version 1.0 (22/2/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Alessandro Plasmati
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{scrartcl}
+
+\reversemarginpar % Move the margin to the left of the page 
+
+\newcommand{\MarginText}[1]{\marginpar{\raggedleft\itshape\small#1}} % New command defining the margin text style
+
+\usepackage[nochapters]{classicthesis} % Use the classicthesis style for the style of the document
+\usepackage[LabelsAligned, NoDate]{currvita} % Use the currvita style for the layout of the document
+
+\addtolength{\oddsidemargin}{-.1in}
+\addtolength{\evensidemargin}{-.1in}
+\addtolength{\textwidth}{1.5in}
+
+\addtolength{\topmargin}{-.1in}
+\addtolength{\textheight}{1.5in}
+
+\renewcommand{\cvheadingfont}{\LARGE\color{Maroon}} % Font color of your name at the top
+
+\usepackage{hyperref} % Required for adding links	and customizing them
+\hypersetup{colorlinks, breaklinks, urlcolor=Maroon, linkcolor=Maroon} % Set link colors
+
+\newlength{\datebox}\settowidth{\datebox}{Spring 2011} % Set the width of the date box in each block
+
+\newcommand{\NewEntry}[3]{\noindent\hangindent=2em\hangafter=0 \parbox{\datebox}{\small \textit{#1}}\hspace{1.5em} #2 #3 % Define a command for each new block - change spacing and font sizes here: #1 is the left margin, #2 is the italic date field and #3 is the position/employer/location field
+\vspace{0.5em}} % Add some white space after each new entry
+
+\newcommand{\Description}[1]{\hangindent=2em\hangafter=0\noindent\raggedright\footnotesize{#1}\par\normalsize\vspace{1em}} % Define a command for descriptions of each entry - change spacing and font sizes here
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\thispagestyle{empty} % Stop the page count at the bottom of the first page
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{cv}{\spacedallcaps{Salma Y rodriguez}}\vspace{1.5em} % Your name
+
+\noindent\spacedlowsmallcaps{Contact Information}\vspace{0.5em} % Personal information heading
+
+% \NewEntry{}{\textit{Born in Canada,}}{20 November 1987} % Birthplace and date
+
+\NewEntry{email}{\href{mailto:salmayrodriguez@gmail.com}{salmayrodriguez@gmail.com}} % Email address
+
+% \NewEntry{website}{\href{http://www.johnsmith.com}{http://www.johnsmith.com}} % Personal website
+
+\NewEntry{phone}{(H) +1 (305) 705 7708\ \ $\cdotp$\ \ (M) +1 (786) 486 4059} % Phone number(s)
+
+\vspace{1em} % Extra white space between the personal information section and goal
+
+% \noindent\spacedlowsmallcaps{Goal}\vspace{1em} % Goal heading, could be used for a quotation or short profile instead
+
+% \Description{Gain fundamental experience in my area of interest and expertise.}%\vspace{2em} % Goal text
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE
+%----------------------------------------------------------------------------------------
+
+\noindent\spacedlowsmallcaps{Work Experience}\vspace{1em}
+
+\NewEntry{4/13--pres.}{Engineer, \textsc{IBM} --- Poughkeepsie}
+
+\Description{\MarginText{International Business Machines}Developing and testing firmware changes on the IBM Mainframe, with focus on maintaining the guaranteed level of RAS and security in the processor resource system management facility.} % \\ Reference: John \textsc{McDonald}\ \ $\cdotp$\ \ +1 (000) 111 1111\ \ $\cdotp$\ \ \href{mailto:john@lehman.com}{john@lehman.com}}
+
+\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
+
+\Description{Pioneering the first IBM Mainframe z/OS cloud services using a fully REST compliant API, working in a team to research and develop automation workflows for the encryption/decryption cloud service, MQ as a service, and future web services.}
+
+\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
+
+\Description{Improving presentation and leadership skills via the Toastmasters International leadership organization.}
+
+%------------------------------------------------
+
+\NewEntry{9/12--12/12}{Research Assistant, \textsc{FIU}  --- Miami}
+
+\Description{\MarginText{SCIS, Florida Int'l University}Researched proof of concept prototypes to improve reliability on spinning disk storage servers, using write-back persistence and replication policies on client flash.}
+% \\ Reference: Bill \textsc{Lumbergh}\ \ +1 (000) 111 1111\ \ $\cdotp$\ \ \href{mailto:bill@initech.com}{bill@initech.com}}
+
+\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
+
+\Description{Made further research and development to save power on storage servers. \newline
+Publication: https://www.usenix.org/system/files/fastpw13-final30.pdf.}
+
+%------------------------------------------------
+
+\NewEntry{4/11--9/11}{Research Assistant, \textsc{FIU} --- Miami}
+
+\Description{\MarginText{SCIS, Florida Int'l University}Reduced latency between query and response time for PatentsSearcher.com by changing compliance from SOAP to REST, developing an event-driven XML parser to unmarshal web service data from the European Patent Office and the US Patent and Trademark Office.}
+% \\ Reference: Big \textsc{Mike}\ \ +1 (000) 111 1111\ \ $\cdotp$\ \ \href{mailto:mike@buymore.com}{mike@buymore.com}}
+
+\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
+
+%------------------------------------------------
+
+\vspace{1em} % Extra space between major sections
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+
+\spacedlowsmallcaps{Education}\vspace{1em}
+
+\NewEntry{8/09--12/12}{Florida International University --- Miami}
+
+\Description{\MarginText{Bachelor of Science}GPA: 3.6\ \ $\cdotp$\ \ School of Computing and Information Sciences\ \ $\cdotp$\ \ \newline
+Honor: \textit{Cum Laude}\ \ $\cdotp$\ \ Major: Computer Science\ \ $\cdotp$\ \ Minor: Mathematics}
+
+%------------------------------------------------
+
+\vspace{1em} % Extra space between major sections
+
+%----------------------------------------------------------------------------------------
+%	CERTIFICATIONS
+%----------------------------------------------------------------------------------------
+
+\spacedlowsmallcaps{Certifications}\vspace{1em}
+
+\NewEntry{11/14--pres.}{Johns Hopkins University --- Coursera}
+
+\Description{\MarginText{Data Science Specialization}Taking nine courses covering various topics in data science to be completed by June 20th, 2015, plus a real world capstone project (date: TBD).}
+
+\NewEntry{9/14--11/14}{Georgia Institute of Technology --- Coursera}
+
+\Description{\MarginText{Computational Investing}Gained new insight from market price and volume data using technical indicators and performing event studies. Constructed a market simulator and portfolio optimizer using Numpy and Pamdas frameworks in Python for time series analysis.}
+
+%------------------------------------------------
+
+\vspace{1em} % Extra space between major sections
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS
+%----------------------------------------------------------------------------------------
+
+% \spacedlowsmallcaps{Publications}\vspace{1em}
+
+% \NewEntry{January 2013}{Publication Title}
+
+% \Description{\MarginText{Full Journal Name}Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nisl tellus, sodales non pulvinar in, adipiscing sit amet purus. Suspendisse sed facilisis diam. Sed ornare sem nec justo adipiscing nec venenatis lectus commodo. Mauris non neque ligula. Pellentesque sed quam eu felis iaculis iaculis ac a leo. Suspendisse neque neque, placerat id adipiscing et, elementum eu sem.\\ Authors: John \textsc{Smith}, ~James \textsc{Smith}}
+
+%------------------------------------------------
+
+% \NewEntry{Sept. 2012}{Publication Title}
+
+% \Description{\MarginText{Full Journal Name}Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nisl tellus, sodales non pulvinar in, adipiscing sit amet purus. Suspendisse sed facilisis diam. Sed ornare sem nec justo adipiscing nec venenatis lectus commodo. Mauris non neque ligula. Pellentesque sed quam eu felis iaculis iaculis ac a leo. Suspendisse neque neque, placerat id adipiscing et, elementum eu sem.\\ Authors: John \textsc{Smith}, ~James \textsc{Smith}}
+
+%------------------------------------------------
+
+% \vspace{1em} % Extra space between major sections
+
+%----------------------------------------------------------------------------------------
+%	OTHER INFORMATION
+%----------------------------------------------------------------------------------------
+
+\spacedlowsmallcaps{Other Information}\vspace{1em}
+
+\Description{\MarginText{Awards}2014\ \ $\cdotp$\ \ IBM Certificate of Recognition}
+
+\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
+
+\Description{2012\ \ $\cdotp$\ \ Ana Clara Mauro Chapter Leadership Award}
+
+\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
+
+\Description{2009\ \ $\cdotp$\ \ Florida Hispanic Legislative Caucus Scholarship}
+
+\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
+
+\Description{2008\ \ $\cdotp$\ \ Dade County Public Schools Superintendent's Superior Musicianship Award}
+
+\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
+
+%------------------------------------------------
+
+\vspace{1em} % Extra space between major sections
+
+%----------------------------------------------------------------------------------------
+%	LANGUAGES
+%----------------------------------------------------------------------------------------
+
+\Description{\MarginText{Languages}Proficient in English and Spanish}
+
+\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
+
+%------------------------------------------------
+
+\vspace{1em} % Extra space between major sections
+
+%----------------------------------------------------------------------------------------
+%	TECH SKILLS
+%----------------------------------------------------------------------------------------
+
+% \Description{\MarginText{Tech Skillls}C \ \ $\cdotp$\ \ Git\ \ $\cdotp$\ \ \LaTeX\ \ $\cdotp$\ \ Linux\ \ $\cdotp$\ \ MATLAB\textsuperscript{\textregistered}\ \ $\cdotp$\ \ Prolog\ \ $\cdotp$\ \ Python\ \ $\cdotp$\ \ R\ \ $\cdotp$\ \ Shell\ \ $\cdotp$\ \ VI iMproved\ \ $\cdotp$\ \ VimL}
+
+%------------------------------------------------
+
+% \vspace{1em} % Extra space between major sections
+
+% \newlength{\langbox} % Create a new length for the length of languages to keep them equally spaced
+% \settowidth{\langbox}{English} % Length equals the length of "English" - if you have a longer language in your list put it here
+
+% \Description{\MarginText{Languages}\parbox{\langbox}{\textsc{English}}\ \ $\cdotp$\ \ \ Mothertongue}
+
+% \vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
+
+% \Description{\parbox{\langbox}{\textsc{Spanish}}\ \ $\cdotp$\ \ \ Intermediate (conversationally fluent)}
+
+% \vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
+
+% \Description{\parbox{\langbox}{\textsc{Dutch}}\ \ $\cdotp$\ \ \ Basic (simple words and phrases only)}
+
+% \vspace{1em} % Negative vertical space to counteract the vertical space between every \Description command
+
+%------------------------------------------------
+
+\Description{\MarginText{Interests}Programming\ \ $\cdotp$\ \ Writing\ \ $\cdotp$\ \ Piano\ \ $\cdotp$\ \ Mathematics\ \ $\cdotp$\ \  Public Speaking\ \ $\cdotp$\ \ Presenting}
+
+%----------------------------------------------------------------------------------------
+
+\end{cv}
+
+\end{document}
