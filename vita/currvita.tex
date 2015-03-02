@@ -39,7 +39,7 @@
 \usepackage{hyperref} % Required for adding links	and customizing them
 \hypersetup{colorlinks, breaklinks, urlcolor=Maroon, linkcolor=Maroon} % Set link colors
 
-\newlength{\datebox}\settowidth{\datebox}{Spring 2011} % Set the width of the date box in each block
+\newlength{\datebox}\settowidth{\datebox}{Nov 2011 -- Dec 2011} % Set the width of the date box in each block
 
 \newcommand{\NewEntry}[3]{\noindent\hangindent=2em\hangafter=0 \parbox{\datebox}{\small \textit{#1}}\hspace{1.5em} #2 #3 % Define a command for each new block - change spacing and font sizes here: #1 is the left margin, #2 is the italic date field and #3 is the position/employer/location field
 \vspace{0.5em}} % Add some white space after each new entry
@@ -68,33 +68,11 @@
 
 \NewEntry{phone}{(H) +1 (305) 705 7708\ \ $\cdotp$\ \ (M) +1 (786) 486 4059} % Phone number(s)
 
-\vspace{1em} % Extra white space between the personal information section and goal
+% \vspace{1em} % Extra white space between the personal information section and goal
 
 % \noindent\spacedlowsmallcaps{Goal}\vspace{1em} % Goal heading, could be used for a quotation or short profile instead
 
 % \Description{Gain fundamental experience in my area of interest and expertise.}%\vspace{2em} % Goal text
-
-%----------------------------------------------------------------------------------------
-%	CERTIFICATIONS
-%----------------------------------------------------------------------------------------
-
-\spacedlowsmallcaps{Certifications}\vspace{1em}
-
-\NewEntry{2/15--pres.}{University of Washington --- Coursera}
-
-\Description{\MarginText{Comp. Finance \& Econometrics}Learning new techniques to perform empirical studies on financial data using Excel and the R programming language.}
-
-\NewEntry{11/14--pres.}{Johns Hopkins University --- Coursera}
-
-\Description{\MarginText{Data Science Specialization}Taking nine courses covering various topics in data science to be completed by June 20th, 2015, plus a real world capstone project (date: October, 2015).}
-
-\NewEntry{9/14--11/14}{Georgia Institute of Technology --- Coursera}
-
-\Description{\MarginText{Computational Investing}Gained new insight from market price and volume data using technical indicators and performing event studies. Constructed a market simulator and portfolio optimizer using Numpy and Pamdas frameworks in Python for time series analysis.}
-
-%------------------------------------------------
-
-\vspace{1em} % Extra space between major sections
 
 %----------------------------------------------------------------------------------------
 %	WORK EXPERIENCE
@@ -102,19 +80,23 @@
 
 \noindent\spacedlowsmallcaps{Work Experience}\vspace{1em}
 
-\NewEntry{4/13--pres.}{Engineer, \textsc{IBM} --- Poughkeepsie}
+\NewEntry{April 2013 -- Present}{Engineer, \textsc{IBM} --- Poughkeepsie}
 
-\Description{\MarginText{International Business Machines}Developing and testing firmware changes on the IBM Mainframe, with focus on maintaining the guaranteed level of RAS and security in the processor resource system manager facility.} % \\ Reference: John \textsc{McDonald}\ \ $\cdotp$\ \ +1 (000) 111 1111\ \ $\cdotp$\ \ \href{mailto:john@lehman.com}{john@lehman.com}}
+\Description{\MarginText{International Business Machines}Developing and testing firmware changes on the IBM Mainframe,
+with focus on maintaining the guaranteed level of RAS and security in the processor resource system manager facility.} % \\ Reference: John \textsc{McDonald}\ \ $\cdotp$\ \ +1 (000) 111 1111\ \ $\cdotp$\ \ \href{mailto:john@lehman.com}{john@lehman.com}}
 
 \vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
+
+\Description{Representing my team in process adherence and process improvement for ISO quality audits.}
 
 \Description{Improving presentation and leadership skills via the Toastmasters International leadership organization.}
 
 %------------------------------------------------
 
-\NewEntry{9/12--12/12}{Research Assistant, \textsc{FIU}  --- Miami}
+\NewEntry{Sep 2012 -- Dec 2012}{Research Assistant, \textsc{FIU}  --- Miami}
 
-\Description{\MarginText{SCIS, Florida Int'l University}Researched proof of concept prototypes to improve reliability on spinning disk storage servers, using write-back persistence and replication policies on client flash.}
+\Description{\MarginText{SCIS, Florida Int'l University}Researched proof of concept prototypes to improve reliability
+on spinning disk storage servers, using write-back persistence and replication policies on client flash storage.}
 % \\ Reference: Bill \textsc{Lumbergh}\ \ +1 (000) 111 1111\ \ $\cdotp$\ \ \href{mailto:bill@initech.com}{bill@initech.com}}
 
 \vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
@@ -124,7 +106,7 @@ Publication: https://www.usenix.org/system/files/fastpw13-final30.pdf.}
 
 %------------------------------------------------
 
-\NewEntry{4/11--9/11}{Research Assistant, \textsc{FIU} --- Miami}
+\NewEntry{Apr 2011 -- Sep 2011}{Research Assistant, \textsc{FIU} --- Miami}
 
 \Description{\MarginText{SCIS, Florida Int'l University}Reduced latency between query and response time for PatentsSearcher.com by changing compliance from SOAP to REST, developing an event-driven XML parser to unmarshal web service data from the European Patent Office and the US Patent and Trademark Office.}
 % \\ Reference: Big \textsc{Mike}\ \ +1 (000) 111 1111\ \ $\cdotp$\ \ \href{mailto:mike@buymore.com}{mike@buymore.com}}
@@ -141,7 +123,19 @@ Publication: https://www.usenix.org/system/files/fastpw13-final30.pdf.}
 
 \spacedlowsmallcaps{Education}\vspace{1em}
 
-\NewEntry{8/09--12/12}{Florida International University --- Miami}
+\NewEntry{Feb 2015 -- Present}{University of Washington --- Coursera}
+
+\Description{\MarginText{Comp. Finance \& Econometrics}Learning new techniques to perform empirical studies on financial data using Excel and the R programming language.}
+
+\NewEntry{Nov 2014 -- Present}{Johns Hopkins University --- Coursera}
+
+\Description{\MarginText{Data Science Specialization}Taking nine courses covering various topics in data science to be completed by June 20th, 2015, plus a real world capstone project (date: October, 2015).}
+
+\NewEntry{Sep 2014 -- Nov 2014}{Georgia Institute of Technology --- Coursera}
+
+\Description{\MarginText{Computational Investing}Gained new insight from market price and volume data using technical indicators and performing event studies. Constructed a market simulator and portfolio optimizer using Numpy and Pamdas frameworks in Python for time series analysis.}
+
+\NewEntry{Aug 2009 -- Dec 2012}{Florida International University --- Miami}
 
 \Description{\MarginText{Bachelor of Science}GPA: 3.6\ \ $\cdotp$\ \ School of Computing and Information Sciences\ \ $\cdotp$\ \ \newline
 Honor: \textit{Cum Laude}\ \ $\cdotp$\ \ Major: Computer Science\ \ $\cdotp$\ \ Minor: Mathematics}
