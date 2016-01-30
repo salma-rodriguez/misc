@@ -6,12 +6,26 @@
 	let mapleader=","
         let loaded_matchparen = 1
 
-	set rtp+=~/.vim/bundle/vundle
-	call vundle#rc()
+	set rtp+=~/.vim/bundle/Vundle.vim
+
+	call vundle#begin()
+        Plugin 'flazz/vim-colorschemes'
+        Plugin 'garbas/vim-snipmate'
+        Plugin 'hced/bufkill-vim'
+        Plugin 'scrooloose/nerdtree'
+        Plugin 'scrooloose/snipmate-snippets'
+        Plugin 'tomtom/tlib_vim'
+        Plugin 'Townk/vim-autoclose'
+        Plugin 'tpope/vim-fugitive'
+        Plugin 'vim-addon-mw-utils'
+        Plugin 'VundleVim/Vundle.vim'
+	call vundle#end()
 
 	filetype on
 	filetype plugin on
 	filetype indent on
+
+        colorscheme molokai
 " }
 
 " Basic Settings {
@@ -54,14 +68,13 @@
 	set noerrorbells
 	set nobackup
 	set noswapfile
-	set t_Co=16
+	set t_Co=256
 	set mouse=a
 	set pastetoggle=<F2>
 	set spelllang=en_us
 	set cpoptions+=ces$
 	set printoptions=header:0,duplex:long,paper:letter
 	set virtualedit=all
-	set background=dark
 	set cindent
 	set wildmenu
 	set wildmode=list:longest,full
@@ -96,19 +109,6 @@
         set timeoutlen=500
 " }
 
-" Bundles {
-	Bundle 'gmarik/vundle'
-	Bundle 'tpope/vim-fugitive'
-	Bundle 'scrooloose/nerdtree'
-	Bundle 'MarcWeber/vim-addon-mw-utils'
-	Bundle 'tomtom/tlib_vim'
-	Bundle 'scrooloose/snipmate-snippets'
-	Bundle 'garbas/vim-snipmate'
-	Bundle 'flazz/vim-colorschemes'
-	Bundle 'hced/bufkill-vim'
-	Bundle 'Townk/vim-autoclose'
-" }
-
 " Advanced Settings {
 	" Folding {
 		set foldenable
@@ -122,23 +122,7 @@
 		endfunction " }
 
 		set foldtext=SimpleFoldText()
-	" }
-
-	" Solarized {
-		let g:solarized_bold=1
-		let g:solarized_contrast="high"
-		let g:solarized_degrade=0
-		let g:solarized_italic=1
-		let g:solarized_termcolors=16
-		let g:solarized_termtrans=0
-		let g:solarized_underline=1
-		let g:solarized_visibility="high"
-
-		if &t_Co >= 16 || has('gui_running')
-			syntax enable
-			colorscheme solarized
-		endif
-	" }
+        " }
 
 	" Miscellaneous {
 		if has('cmdline_info')
@@ -148,22 +132,18 @@
 		set listchars=tab:>.,trail:.,extends:#,nbsp:.
 		autocmd filetype html,xml,py set listchars=tab:>.
 	        set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%v\ %P%)
-		set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 	" }
 
 	" Status Line {
 		if has('statusline')
 		        set statusline=%<%f\
 		        set statusline+=%w%h%m%r
-		        set statusline+=%{fugitive#statusline()}
+		        set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 		        set statusline+=\ [%{&ff}/%Y]
 		        set statusline+=\ [%{getcwd()}]
 		        set statusline+=%=%-14.(%l,%c%V%)\ %p%%
 		endif
-	" Powerline {
-	        let g:Powerline_symbols="fancy"
-	" }
-	
+        " }
 " }
 
 " Mapping {
@@ -189,13 +169,12 @@
                 nmap <silent> <leader>cd :lcd %:h<CR>
  		nmap <silent> <leader>/ :nohlsearch<CR>
 		nmap <silent> <leader>s :set spell!<CR>
-
+                
 		nmap <silent> <leader>ev :e $MYVIMRC<CR>
 		nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-                nmap <silent> <leader>dcs :set background=dark<CR>
-		nmap <silent> <leader>lcs :set background=light<CR>
-		
+                nmap <silent> <leader>dcs :colorscheme molokai<CR>
+                nmap <silent> <leader>lcs :colorscheme github<CR>
 	" }
 	
 	" Toggle {
@@ -293,11 +272,12 @@
 		nnoremap <silent> <leader>gl :Glog<CR>
 		nnoremap <silent> <leader>gr :Gread<CR>
 		nnoremap <silent> <leader>gd :Gdiff<CR>
+                \ :colorscheme github<CR>
 		nnoremap <silent> <leader>gw :Gwrite<CR>
 		nnoremap <silent> <leader>gb :Gblame<CR>
 		nnoremap <silent> <leader>gs :Gstatus<CR>
 		nnoremap <silent> <leader>gD :diffoff!<CR><C-W>h:bd<CR>
-                \ :colorscheme solarized<CR>
+                \ :colorscheme molokai<CR>
 	" }
 
 	" NerdTree {
