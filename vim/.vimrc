@@ -11,13 +11,13 @@
 	call vundle#begin()
         Plugin 'flazz/vim-colorschemes'
         Plugin 'garbas/vim-snipmate'
-        Plugin 'hced/bufkill-vim'
+        Plugin 'qpkorr/vim-bufkill'
         Plugin 'scrooloose/nerdtree'
         Plugin 'scrooloose/snipmate-snippets'
         Plugin 'tomtom/tlib_vim'
         Plugin 'Townk/vim-autoclose'
         Plugin 'tpope/vim-fugitive'
-        Plugin 'vim-addon-mw-utils'
+        Plugin 'MarcWeber/vim-addon-mw-utils'
         Plugin 'VundleVim/Vundle.vim'
 	call vundle#end()
 
