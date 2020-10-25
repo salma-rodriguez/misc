@@ -66,53 +66,50 @@
 
 % \NewEntry{website}{\href{http://www.johnsmith.com}{http://www.johnsmith.com}} % Personal website
 
-\NewEntry{phone}{(M) +1 (786) 848 3862\ \ $\cdotp$\ \ (M) +1 (786) 848 3862} % Phone number(s)
+\NewEntry{phone}{%(H) +1 (305) 705 7708\ \ $\cdotp$\ \%(M) +1 (786) 848 3862} % Phone number(s)
 
-\vspace{1em} % Extra white space between the personal information section and goal
+% \vspace{1em} % Extra white space between the personal information section and goal
 
-\noindent\spacedlowsmallcaps{Goal}\vspace{1em} % Goal heading, could be used for a quotation or short profile instead
+% \noindent\spacedlowsmallcaps{Goal}\vspace{1em} % Goal heading, could be used for a quotation or short profile instead
 
-\Description{Gain fundamental experience in econometrics and expertise in financial economics.}%\vspace{2em} % Goal text
+% \Description{Gain fundamental experience in my area of interest and expertise.}%\vspace{2em} % Goal text
 
 %----------------------------------------------------------------------------------------
-% PROFESSIONAL DEVELOPMENT
+%	WORK EXPERIENCE
 %----------------------------------------------------------------------------------------
 
-\NewEntry{May 2019 -- Present}{Sabbatical USA}
+\noindent\spacedlowsmallcaps{Work Experience}\vspace{1em}
 
-\Description{\MarginText{Sabbatical}Currently on a sabbatical from professional life, I am getting professional development experience in the field of econometrics, by developing statistical methods for social sciences.}
+\NewEntry{April 2013 -- Present}{Engineer, \textsc{IBM} --- Poughkeepsie}
 
-\Description{\MarginText{Quantitative Methods}Learning methods and statistics in the social sciences.}
-
-\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
-
-\NewEntry{Nov 2014 -- Apr 2016}{Johns Hopkins University --- Coursera}
-
-\Description{\MarginText{Data Science Specialization}Took nine courses covering various topics in data sciene, plus a real world capstone project (date completed: October, 2015).}
+\Description{\MarginText{International Business Machines}Developing and testing firmware changes on the IBM Mainframe,
+with focus on maintaining the guaranteed level of RAS and security in the processor resource system manager facility.} % \\ Reference: John \textsc{McDonald}\ \ $\cdotp$\ \ +1 (000) 111 1111\ \ $\cdotp$\ \ \href{mailto:john@lehman.com}{john@lehman.com}}
 
 \vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
 
-\NewEntry{Nov 2015 -- Feb 2016}{IE Business School --- Coursera}
+\Description{Representing my team in process adherence and process improvement for ISO quality audits.}
 
-\Description{\MarginText{Economic Policymaking}This was the first of three courses on Globalization, Economic Growth and Stability specialization. This course forms the basis for current studies in economics.}
+\Description{Improving presentation and leadership skills via the Toastmasters International leadership organization.}
 
-\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
+%------------------------------------------------
 
-\NewEntry{Feb 2015 -- May 2015}{University of Washington --- Coursera}
+\NewEntry{Sep 2012 -- Dec 2012}{Research Assistant, \textsc{FIU}  --- Miami}
 
-\Description{\MarginText{Comp. Finance \& Econometrics}Learned new techniques to perform empirical studies on financial data using Excel and the R programming language.}
-
-\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
-
-\NewEntry{Sep 2014 -- Nov 2014}{Georgia Institute of Technology --- Coursera}
-
-\Description{\MarginText{Computational Investing}Gained new insight from market price and volume data using technical indicators and performing event studies. Constructed a market simulator and portfolio optimizer using Numpy and Pamdas frameworks in Python for time series analysis.}
+\Description{\MarginText{SCIS, Florida Int'l University}Researched proof of concept prototypes to improve reliability
+on spinning disk storage servers, using write-back persistence and replication policies on client flash storage.}
+% \\ Reference: Bill \textsc{Lumbergh}\ \ +1 (000) 111 1111\ \ $\cdotp$\ \ \href{mailto:bill@initech.com}{bill@initech.com}}
 
 \vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
 
-\NewEntry{Feb 2014 - May 2014}{Stanford University --- Coursera}
+\Description{Made further research and development to save power on storage servers. \newline
+Publication: https://www.usenix.org/system/files/fastpw13-final30.pdf.}
 
-\Description{\MarginText{Machine Learning}Learned new techniques for statistical learning, which includes cluster analysis, regression, training, cross-validation and bootstrapping.}
+%------------------------------------------------
+
+\NewEntry{Apr 2011 -- Sep 2011}{Research Assistant, \textsc{FIU} --- Miami}
+
+\Description{\MarginText{SCIS, Florida Int'l University}Reduced latency between query and response time for PatentsSearcher.com by changing compliance from SOAP to REST, developing an event-driven XML parser to unmarshal web service data from the European Patent Office and the US Patent and Trademark Office.}
+% \\ Reference: Big \textsc{Mike}\ \ +1 (000) 111 1111\ \ $\cdotp$\ \ \href{mailto:mike@buymore.com}{mike@buymore.com}}
 
 \vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
 
@@ -124,52 +121,24 @@
 %	EDUCATION
 %----------------------------------------------------------------------------------------
 
-\noindent\spacedlowsmallcaps{Education}\vspace{1em}
+\spacedlowsmallcaps{Education}\vspace{1em}
 
-\NewEntry{Aug 2009 -- Dec 2020}{Florida International University}
+\NewEntry{Feb 2015 -- Present}{University of Washington --- Coursera}
 
-\Description{\MarginText{B.Sc.}\textbf{Cum Laude} | Computer Science Maj | Mathematics Min}
+\Description{\MarginText{Comp. Finance \& Econometrics}Learning new techniques to perform empirical studies on financial data using Excel and the R programming language.}
 
-\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
+\NewEntry{Nov 2014 -- Present}{Johns Hopkins University --- Coursera}
 
-\Description{My senior project was a research project conducted under supervision of Dr. Ming Zhao at his VISA research laboratory, to design a proof of concept prototype with the aim of improving reliability on spinning disk storage servers, using write-back persistence and replication policies on client flash storage. \\ \textbf{Reference:} Ming \textsc{Zhao}\ \ $\cdotp$\ \ +1 (480) 965 3190\ \ $\cdotp$\ \ \href{mailto:mingzhao@asu.edu}{mingzhao@asu.edu}}
+\Description{\MarginText{Data Science Specialization}Taking nine courses covering various topics in data science to be completed by June 20th, 2015, plus a real world capstone project (date: October, 2015).}
 
-\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
+\NewEntry{Sep 2014 -- Nov 2014}{Georgia Institute of Technology --- Coursera}
 
-\Description{Made further research and development to save power on storage servers. \newline \textbf{Publication}: https://www.usenix.org/system/files/fastpw13-final30.pdf.}
+\Description{\MarginText{Computational Investing}Gained new insight from market price and volume data using technical indicators and performing event studies. Constructed a market simulator and portfolio optimizer using Numpy and Pamdas frameworks in Python for time series analysis.}
 
-\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
+\NewEntry{Aug 2009 -- Dec 2012}{Florida International University --- Miami}
 
-%------------------------------------------------
-
-\vspace{1em} % Extra space between major sections
-
-%----------------------------------------------------------------------------------------
-%	WORK EXPERIENCE
-%----------------------------------------------------------------------------------------
-
-\noindent\spacedlowsmallcaps{Work Experience}\vspace{1em}
-
-\NewEntry{Apr 2013 -- Nov 2017}{Software Engineer, \textsc{IBM} --- Poughkeepsie}
-
-\Description{\MarginText{International Business Machines}Developed and tested firmware changes on the IBM Mainframe, with focus on maintaining the guaranteed level of RAS and security in the processor resource system management facility (PR/SM).} % \\ Reference: John \textsc{McDonald}\ \ $\cdotp$\ \ +1 (000) 111 1111\ \ $\cdotp$\ \ \href{mailto:john@lehman.com}{john@lehman.com}}
-
-\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
-
-\Description{Represented my team in process adherence and process improvement for ISO quality audits.}
-
-\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
-
-\Description{Improved presentation and leadership skills via the Toastmasters International leadership organization.}
-
-\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
-
-\NewEntry{Apr 2011 -- Sep 2011}{Research Assistant, \textsc{FIU} --- Miami}
-
-\Description{\MarginText{SCIS, Florida Int'l University}Reduced latency between query and response time for PatentsSearcher.com by changing compliance from SOAP to REST, developing an event-driven XML parser to unmarshal web service data from the European Patent Office and the US Patent and Trademark Office.}
-% \\ Reference: Big \textsc{Mike}\ \ +1 (000) 111 1111\ \ $\cdotp$\ \ \href{mailto:mike@buymore.com}{mike@buymore.com}}
-
-\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
+\Description{\MarginText{Bachelor of Science}GPA: 3.6\ \ $\cdotp$\ \ School of Computing and Information Sciences\ \ $\cdotp$\ \ \newline
+Honor: \textit{Cum Laude}\ \ $\cdotp$\ \ Major: Computer Science\ \ $\cdotp$\ \ Minor: Mathematics}
 
 %------------------------------------------------
 
