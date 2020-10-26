@@ -2,6 +2,14 @@ source("/home/chrx/Documents/rmetrics/pkg/RmetricsTools.R")
 rmetrics.packages <-pkgsRmetrics()
 my.rmetrics.packages <- pkgsRmetrics()[rmetrics.packages %in% rownames(installed.packages())]
 
+HOME = "/home/chrx"
+Rmtrcs = function() {
+    setwd(paste(HOME, "/Documents/rmetrics"), sep = "", collapse = NULL)
+    if (!dir.exists("rmetrics")) {
+        system("git clone 'https://github.com/rforge/rmetrics.git'")
+    }
+}
+
 Itdv1 = function() {
     if (!("tidyverse" %in% installed.packages()))
         install.packages("tidyverse", dependencies = c("Depends", "Suggests"))
